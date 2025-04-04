@@ -1,4 +1,4 @@
-##Sử dụng cho CURRENT_USER trong Session Storage
+## Sử dụng cho CURRENT_USER trong Session Storage
 
 ```
 {

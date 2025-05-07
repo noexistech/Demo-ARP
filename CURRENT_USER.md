@@ -2,23 +2,22 @@
 
 ```
 {
-  "access_token": "<TOKEN Ở ĐÂY>"
+  "access_token": "AAAAAAAAAA",
   "token_type": "bearer",
   "expires_in": 7199,
-  "refresh_token": "<REFRESH TOKEN Ở ĐÂY>",
-  "userName": "<USERNAME Ở ĐÂY>",
+  "refresh_token": "AAAAAAAAAA",
+  "userName": "3120410200",
   "id": "-5325338479391172343",
-  "logtime": "250404032856",
+  "logtime": "250507143704",
   "code": "200",
   "result": "true",
   "passtype": "0",
-  "name": "<TÊN Ở ĐÂY>",
-  "principal": "",
-  "idpc": "",
+  "name": "AAAAAAAA",
+  "principal": "AAAAAAA@gmail.com",
+  "idpc": "-7648466455965434478",
   "roles": "SINHVIEN",
   "wcf": "0",
-  ".expires": "Thu, 03 Apr 2026 22:28:56 GMT",
-  ".issued": "Thu, 03 Apr 2025 20:28:56 GMT",
-  "url_sau_logon": "https://thongtindaotao.sgu.edu.vn/public/#/home"
+  ".expires": "Wed, 07 May 2025 09:37:03 GMT",
+  ".issued": "Wed, 07 May 2025 07:37:03 GMT"
 }
 ```

